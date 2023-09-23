@@ -1,95 +1,64 @@
-# Experiment--02-Implementation-of-combinational-logic
-Implementation of combinational logic gates
- 
+ Name: O.sirisha Reddy
+ Reg.No:212222230103
+
+# Experiment-02 Implementation of combinational logic
 ## AIM:
 To implement the given logic function verify its operation in Quartus using Verilog programming.
-+ F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D
-+ F2=xy’z+x’y’z+w’xy+wx’y+wxy
- 
- 
- 
-## Equipments Required
-##### Hardware – PCs, Cyclone II , USB flasher
-##### Software – Quartus prime
+ F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D
 
+## Equipments Required:
+ Hardware – PCs, Cyclone II , USB flasher
+Software – Quartus prime
 
 ## Theory
-* A combinational logic circuit implement logical functions where its outputs depend only on its current combination of input values. On the other hand sequential circuits, unlike combinational logic, have state or memory.
-* Some logic operations may require more than one logic gate. Different combinations of gates are designed for different operations. The behaviour of the combined logic gates can be determined by constructing a truth table of the combined gates.
+Logic gates are electronic circuits which perform logical functions on one or more inputs to produce one output.
 
-## Logic Diagram
+Using AND gate:
+An AND gate is a fundamental digital logic gate that performs a logical conjunction on its input signals. It produces an output signal only when all of its input signals are high (logic level 1). If any of the input signals is low (logic level 0), the output of the AND gate remains low.
 
-![Combinational-Logic-Circuits-1](https://user-images.githubusercontent.com/115524975/233445547-da8f5b1f-2dbb-49ac-a548-3e877a65d354.png)
+using NOT gate:
+A NOT gate, also known as an inverter, is a basic digital logic gate that performs the operation of negation on its input signal. In other words, it produces the opposite (complementary) output to its input. If the input is high (logic level 1), the output will be low (logic level 0), and if the input is low, the output will be high.
+
+using OR gate:
+An OR gate is a fundamental digital logic gate that performs a logical disjunction on its input signals. It produces an output signal when at least one of its input signals is high (logic level 1). The output remains low only if all input signals are low (logic level 0).
 
 ## Procedure
-1. Create a project with required entities.
-2. Create a module along with respective file name.
-3. Run the respective programs for the given boolean equations.
-4. Run the module and get the respective RTL outputs.
-5. Create university program(VWF) for getting timing diagram.
-6. Give the respective inputs for timing diagram and obtain the results
+1.Create a project with required entities.
+
+2.Create a module along with respective file name.
+
+3.Run the respective programs for the given boolean equations.
+
+4.Run the module and get the respective RTL outputs.
+
+5.Create university program(VWF) for getting timing diagram.
+
+6.Give the respective inputs for timing diagram and obtain the results.
 ## Program:
-```
-Program to implement the given logic function and to verify its operations in quartus using Verilog programming.
-Developed by : Gokul.M
-RegisterNumber : 212222230037
-```
-
-```verilog
-Program For F1
-
-module combilogic(A,B,C,D,F1);
-input A,B,C,D;
-output F1;
-wire G1,G2,G3,G4,G5;
-assign G1=((~A)&(~B)&(~C)&(~D));
-assign G2=((A)&(~C)&(~D));
-assign G3=((~B)&(C)&(~D));
-assign G4=((~A)&(B)&(C)&(D));
-assign G5=((B)&(~C)&(D));
-assign F1=G1|G2|G3|G4|G5;
-endmodule
-
-```
-```verilog
-Program For F2
-
-module combilogic(W,X,Y,Z,F);
-input W,X,Y,Z;
-output F;
-wire G6,G7,G8,G9,G10;
-assign G6=((X)&(~Y)&(Z));
-assign G7=((~X)&(~Y)&(Z));
-assign G8=((~W)&(X)&(Y));
-assign G9=((W)&(~X)&(Y)); 
-assign G10=((W)&(X)&(Y));
-assign F=G6|G7|G8|G9|G10;
+```python
+Developed by:Gokul.M
+RegisterNumber:  212222230037
+module DE2(a,b,c,d,f1);
+input a,b,c,d;
+output f1;
+wire x1,x2,x3,x4,x5;
+assign x1=(~a)&(~b)&(~c)&(~d);
+assign x2=(a)&(~c)&(~d);
+assign x3=(~b)&(c)&(~d);
+assign x4=(~a)&(b)&(c)&(d);
+assign x5=(b)&(~c)&(d);
+assign f1=x1|x2|x3|x4|x5;
 endmodule
 ```
+## RTL:
+![d1](https://github.com/Thenmozhi-Palanisamy/Experiment--02-Implementation-of-combinational-logic-/assets/95198708/5ab2c60f-4580-4390-8c83-3c47e830b49c)
 
+## Truth table
+![image](https://github.com/Thenmozhi-Palanisamy/Experiment--02-Implementation-of-combinational-logic-/assets/95198708/b280551a-f504-449b-8050-3c61de9a5b15)
 
+## output waveform
+![f3](https://github.com/Thenmozhi-Palanisamy/Experiment--02-Implementation-of-combinational-logic-/assets/95198708/b4739a63-7d76-4783-9926-cea462a51185)
 
-## Output:
-## First Question (F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D)
-### RTL
-![f1rtl](https://user-images.githubusercontent.com/115524975/233157599-8d141b96-5272-412e-9a23-fab91073abd4.png)
-
-### Timing Diagram
-![f1td](https://user-images.githubusercontent.com/115524975/233157616-2af36321-5caf-4354-8c44-6b29ea2d677a.png)
-
-### Truth table 
-![image](https://github.com/MukeshVelmurugan/Experiment--02-Implementation-of-combinational-logic-/assets/118707363/0f4bef51-375c-4dbf-9e85-a997dbc669bf)
-
-
-## Second Question (F2=xy’z+x’y’z+w’xy+wx’y+wxy)
-### RTL
-![f2rtl](https://user-images.githubusercontent.com/115524975/233157641-f5367b9b-0bf7-4323-beec-af5fe8b289b6.png)
-
-### Timing Diagram
-![f2td](https://user-images.githubusercontent.com/115524975/233157653-2c124554-d30e-408c-8b1b-a92dfdf77b7c.png)
-
-### Truth table 
-![Screenshot 2023-05-15 010125](https://github.com/MukeshVelmurugan/Experiment--02-Implementation-of-combinational-logic-/assets/118707363/073b6e54-03ce-4c91-bd08-db7cf572ed85)
 
 
 ## Result:
